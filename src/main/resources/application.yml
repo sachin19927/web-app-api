@@ -1,0 +1,88 @@
+spring:
+  jmx:
+    enabled : true
+  application:
+    name: web-app-api
+  web:
+    resources:
+      add-mappings: false    
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: 
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        ddl-auto: update
+  h2:
+   console:
+      enabled: true
+      path: /h2-ui
+  mail:
+   username: developersjourneysource@gmail.com
+   password: bnxgcugatesuuivx
+   host: smtp.gmail.com
+   port: 587
+   protocol: smtp
+   default-encoding: UTF-8
+   properties:
+     mail:
+       smtp:
+         auth: true
+         starttls:
+            enable: true
+       debug: true  
+   test-connection: false
+
+
+email:
+  from: developersjourneysource@gmail.com
+  cc: sachin19927@gmail.com
+  bcc: sachin19927@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+jasypt:
+  encryptor:
+    algorithm: PBEWITHSHA256AND256BITAES-CBC-BC
+    provider-class-name: org.bouncycastle.jce.provider.BouncyCastleProvider
+    password: IamBatman@07  
+
+
+
+
+
+
+
+swagger:
+  openapi:
+    local-url: http://localhost:8080
+    local-desc: Local Environment 
+    dev-url: http://localhost:8080
+    dev-desc: Dev Environment
+    test-url: http://localhost:8080
+    test-desc: Test Environment
+    stage-url: http://localhost:8080
+    stage-desc: Stage Environment
+    prod-url: https://prod-api.com
+    prod-desc: Prod Environment
+    contact-email: sachin19927@gmail.com
+    contact-name: SACHIN H S
+    contact-url: 
+    license-name: RIT License
+    license-url: https://choosealicense.com/licenses/mit/
+    info-title: Web App Backend API
+    info-version: 1.0
+    info-desc: This API exposes endpoints to manage Common Web Apps
+    info-term-service: https://github.com/sachin19927  
