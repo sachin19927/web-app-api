@@ -10,6 +10,6 @@ import com.service.developersjourneysource.entity.Library;
 @Repository
 public interface LibraryRepositry extends JpaRepository<Library, Long>{
 
-	List<Library> findByBookTitle(String name);
+	List<Library> findByBookTitleContainingIgnoreCase(String title);
 
 }

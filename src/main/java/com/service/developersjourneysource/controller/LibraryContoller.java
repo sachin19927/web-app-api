@@ -45,14 +45,14 @@ public class LibraryContoller {
 	private EmailService emailService;
 	
 	@GetMapping("/library")
-	public ResponseEntity<List<LibraryRecord>> getAllBooks(@RequestParam(required = false) String name) {
+	public ResponseEntity<List<LibraryRecord>> getAllBooks(@RequestParam(required = false) String title) {
 		try {
 			List<LibraryRecord> records = new ArrayList<>();
 			
-			if (name == null)
+			if (title == null)
 				libraryService.getAllBooksData().forEach(records::add);
 			else
-				libraryService.getAllBooksDataByName(name).forEach(records::add);
+				libraryService.getAllBooksDataByName(title).forEach(records::add);
 			
 			if (records.isEmpty()) {
 				return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -89,7 +89,7 @@ public class LibraryContoller {
 	public ResponseEntity<LibraryRecord> createTutorial(@RequestBody LibraryRecord libRecord) {
 		if(libRecord!=null) {
 			LibraryRecord bookDetail = libraryService.saveBook(libRecord);
-			emailService.sendOnBoardMail();
+			emailService.sendOnBoardMail(bookDetail);
 			return new ResponseEntity<>(bookDetail, HttpStatus.OK);
 		}
 		return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);

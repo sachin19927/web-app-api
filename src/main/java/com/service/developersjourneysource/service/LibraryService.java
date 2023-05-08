@@ -40,8 +40,8 @@ public class LibraryService {
 		return mapper.entityListToRecordList(libraryRepositry.findAll());
 	}
 
-	public List<LibraryRecord> getAllBooksDataByName(String name) {
-		return mapper.entityListToRecordList(libraryRepositry.findByBookTitle(name));
+	public List<LibraryRecord> getAllBooksDataByName(String title) {
+		return mapper.entityListToRecordList(libraryRepositry.findByBookTitleContainingIgnoreCase(title));
 	}
 	
 	public LibraryRecord getBookDetails(Long id)

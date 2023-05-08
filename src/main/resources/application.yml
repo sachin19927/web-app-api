@@ -22,8 +22,8 @@ spring:
       enabled: true
       path: /h2-ui
   mail:
-   username: developersjourneysource@gmail.com
-   password: bnxgcugatesuuivx
+   username: ENC(J7vz3WlRp0at9Iow3eMmnGyJfNKHRPlMOFpdpzHwMjYGl57ItG/VnpeHxEdLLTVK/BpShsC62kIMPYLB6YTxDclGwtJzdFCUVNMAoQMPRkE=)
+   password: ENC(6xUczKwOrRVXjJviE8vIDxs1ymI8RpSmrdSo+u2VFsLWwZldjC8jhubeDa+qpMuwRMOfRMI1pKyRusW1w5+cVg==)
    host: smtp.gmail.com
    port: 587
    protocol: smtp
@@ -36,34 +36,17 @@ spring:
             enable: true
        debug: true  
    test-connection: false
-
-
+   
 email:
-  from: developersjourneysource@gmail.com
-  cc: sachin19927@gmail.com
-  bcc: sachin19927@gmail.com
-
-
-
-
-
-
-
-
-
-
+   from: developersjourneysource@gmail.com
+   cc: sachin19927@gmail.com
+   bcc: sachin19927@gmail.com
 
 jasypt:
   encryptor:
     algorithm: PBEWITHSHA256AND256BITAES-CBC-BC
     provider-class-name: org.bouncycastle.jce.provider.BouncyCastleProvider
     password: IamBatman@07  
-
-
-
-
-
-
 
 swagger:
   openapi:

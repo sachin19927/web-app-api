@@ -26,6 +26,7 @@ public class Library {
 	private String bookTitle;
 	private String bookCategory;
 	private String bookAuthor;
+	private String emailId;
 	private int publishedYear;
 	private double publishedPrice;
 	@CreationTimestamp

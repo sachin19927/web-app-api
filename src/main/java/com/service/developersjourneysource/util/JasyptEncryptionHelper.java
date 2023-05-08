@@ -12,7 +12,7 @@ public class JasyptEncryptionHelper {
 				encryptor.setAlgorithm("PBEWITHSHA256AND256BITAES-CBC-BC");
 				encryptor.setProvider(new BouncyCastleProvider());
 				encryptor.setIvGenerator(new RandomIvGenerator());
-				String encrypt = encryptor.encrypt("sachin19927@gmail.com");
+				String encrypt = encryptor.encrypt("bnxgcugatesuuivx");
 				System.err.println(encrypt);
 				String decrypt = encryptor.decrypt(encrypt);
 				System.err.println(decrypt);

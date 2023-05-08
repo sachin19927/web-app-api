@@ -4,12 +4,12 @@ import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.spring6.SpringTemplateEngine;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
@@ -17,11 +17,14 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
 import org.thymeleaf.templateresolver.StringTemplateResolver;
 
 @Configuration
-@ConfigurationProperties(prefix="email")
+@ConfigurationProperties(prefix = "email.details")
 public class EmailConfig {
 
+	@Value("${email.from}")
 	private String from;
+	@Value("${email.cc}")
 	private List<String> cc;
+	@Value("${email.bcc}")
 	private List<String> bcc;
 	
 	@Bean
