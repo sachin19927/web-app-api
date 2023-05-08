@@ -1,9 +1,4 @@
-name: Deploy to Aws S3
-
-on:
-  push:
-    branches:
-      - 'master'
+name: Deploy to Aws
 
 jobs:
   deploy:
