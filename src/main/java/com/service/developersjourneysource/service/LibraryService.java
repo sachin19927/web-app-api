@@ -1,5 +1,6 @@
 package com.service.developersjourneysource.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -56,21 +57,21 @@ public class LibraryService {
 			return bookdetail;
 	}
 	
-	public LibraryRecord updateBook(Long id)
-	{
-		LibraryRecord bookdetail = null;
-		Optional<Library> book = libraryRepositry.findById(id);
-		if (book.isPresent()) {
-			bookdetail = mapper.entityDataToRecord(book.get());
-			return bookdetail;
-		}
-		else
-			return bookdetail;
-	}
-
-
 	public void deleteAll() {
 		libraryRepositry.deleteAll();
+	}
+
+	public void deleteById(Long id) {
+		libraryRepositry.deleteById(id);
+	}
+
+	public LibraryRecord updateBook(LibraryRecord updateData) {
+		
+		var updateRecord = new LibraryRecord(updateData.id(),updateData.title(),updateData.category(),updateData.author(),updateData.email(),updateData.year(),updateData.price(),updateData.insertedDate(),updateData.modifiedDate());
+		Library book = mapper.recordDataToEntity(updateRecord);
+		libraryRepositry.save(book);
+		return mapper.entityDataToRecord(book);		
+		
 	}
 	
 	

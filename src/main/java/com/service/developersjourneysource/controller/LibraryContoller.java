@@ -32,7 +32,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/v1")
-@Tag(name = "Tutorial", description = "Tutorial management APIs")
+@Tag(name = "Library", description = "Library Management APIs")
 public class LibraryContoller {
 	
 	@Autowired
@@ -96,29 +96,30 @@ public class LibraryContoller {
 	}
 	
 	@PutMapping("/library/{id}")
-	public ResponseEntity<Library> updateTutorial(@PathVariable("id") Long id, @RequestBody Library library) {
+	public ResponseEntity<LibraryRecord> updateTutorial(@PathVariable("id") Long id, @RequestBody LibraryRecord updateData) {
 		
-		Optional<Library> book = libraryRepositry.findById(id);
-
-		if (book.isPresent()) {
-			Library updateBook = book.get();
-			updateBook.setBookTitle(library.getBookTitle());
-			updateBook.setBookCategory(library.getBookCategory());
-			updateBook.setBookAuthor(library.getBookAuthor());
-			updateBook.setPublishedYear(library.getPublishedYear());
-			updateBook.setPublishedPrice(library.getPublishedPrice());
-			return new ResponseEntity<>(libraryRepositry.save(updateBook), HttpStatus.OK);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		LibraryRecord result;
+		if(id!=null) {
+			LibraryRecord existData=libraryService.getBookDetails(id);
+			if(existData!=null) {
+				result = libraryService.updateBook(updateData);
+				if(result!=null) {
+					return new ResponseEntity<>(result, HttpStatus.OK);	
+			}
+			else
+				{
+					return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+				}
 		}
+	}
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
 	@DeleteMapping("/library/{id}")
 	public ResponseEntity<HttpStatus> deleteTutorial(@PathVariable("id") Long id) {
-		
 		if(id!=null)
 		{
-			libraryRepositry.deleteById(id);
+			libraryService.deleteById(id);
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
 		else
