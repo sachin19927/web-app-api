@@ -1,21 +1,17 @@
 package com.service.developersjourneysource.email;
 
+import static java.util.Locale.ENGLISH;
+
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 
 import com.service.developersjourneysource.model.LibraryRecord;
-
-import static java.util.Locale.ENGLISH;
-
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-
-import lombok.RequiredArgsConstructor;
 
 @Service
 public class EmailService {

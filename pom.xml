@@ -112,7 +112,17 @@
 		</dependency>
 
 
-
+		<!-- AWS S3 storage support -->
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-core</artifactId>
+			<version>1.12.464</version>
+		</dependency>
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-s3</artifactId>
+			<version>1.12.464</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -145,6 +155,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>web-app-api</finalName>
 	</build>
 
 </project>

@@ -2,7 +2,6 @@ package com.service.developersjourneysource.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.service.developersjourneysource.email.EmailService;
-import com.service.developersjourneysource.entity.Library;
 import com.service.developersjourneysource.model.LibraryRecord;
 import com.service.developersjourneysource.repositry.LibraryRepositry;
 import com.service.developersjourneysource.service.LibraryService;
