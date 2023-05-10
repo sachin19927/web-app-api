@@ -100,18 +100,16 @@ public class LibraryContoller {
 		
 		LibraryRecord result;
 		if(id!=null) {
-			LibraryRecord existData=libraryService.getBookDetails(id);
+			LibraryRecord existData=libraryService.updateBook(id,updateData);
 			if(existData!=null) {
-				result = libraryService.updateBook(updateData);
-				if(result!=null) {
-					return new ResponseEntity<>(result, HttpStatus.OK);	
+				
+					return new ResponseEntity<>(existData, HttpStatus.OK);	
 			}
 			else
 				{
 					return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 				}
 		}
-	}
 		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
