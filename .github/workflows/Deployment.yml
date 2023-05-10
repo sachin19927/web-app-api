@@ -15,4 +15,13 @@ on:
         type: boolean
         description: Wheather is this a release build?
         default: false
-
+jobs:
+  deploy:
+    runs-on: aws-ec2
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Build Spring Boot App
+      run: mvn clean install
