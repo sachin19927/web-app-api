@@ -22,6 +22,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+    - name: Install Maven
+      run: sudo yum install -y maven  
       
     - name: Build Spring Boot App
       run: mvn clean install
