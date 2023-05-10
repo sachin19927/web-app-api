@@ -1,0 +1,283 @@
+{
+	"info": {
+		"_postman_id": "c4838cf7-9039-4e74-bb9e-f97cf1057608",
+		"name": "BackEnd-LibAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3933030"
+	},
+	"item": [
+		{
+			"name": "Library API's",
+			"item": [
+				{
+					"name": "Get By Title",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/library?title=men",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"library"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "men"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/library",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"library"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/library/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"library",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Kings Men\",\r\n\t\"category\":\"Action\",\r\n\t\"author\":\"SACHIN\",\r\n    \"email\":\"sachin19927@gmail.com\",\r\n\t\"year\":2023,\r\n\t\"price\":100.5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/library",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"library"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/library",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"library"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete By Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/library/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"library",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Call",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Kings\",\r\n\t\"category\":\"Action\",\r\n\t\"author\":\"SACHIN HS\",\r\n    \"email\":\"sachin19927@gmail.com\",\r\n\t\"year\":2023,\r\n\t\"price\":100.5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/library/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"library",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AWS S3 Storage API",
+			"item": [
+				{
+					"name": "SaveFile in AWS S3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/User.SYSTEM-92/Downloads/SACHIN-H-S-CoverLetter.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/api/v2/awsstorage/upload",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v2",
+								"awsstorage",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Download File from AWS S3 with FileName",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v2/awsstorage/download/1683700098344-BOOK STORE.zip",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v2",
+								"awsstorage",
+								"download",
+								"1683700098344-BOOK STORE.zip"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Out All Files IN AWS S3 bucket",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v2/awsstorage/getallfiles",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v2",
+								"awsstorage",
+								"getallfiles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete File Based on FileName",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v2/awsstorage/delete/1683699600278-BOOK STORE.jpg",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v2",
+								"awsstorage",
+								"delete",
+								"1683699600278-BOOK STORE.jpg"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
