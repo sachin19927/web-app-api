@@ -36,6 +36,10 @@ spring:
             enable: true
        debug: true  
    test-connection: false
+  graphql:
+   graphiql:
+     enabled: true
+     
    
 email:
    from: developersjourneysource@gmail.com
