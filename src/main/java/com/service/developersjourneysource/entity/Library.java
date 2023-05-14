@@ -29,6 +29,7 @@ public class Library {
 	private String emailId;
 	private int publishedYear;
 	private double publishedPrice;
+	private int pages;
 	@CreationTimestamp
 	@Column(name="created_at", nullable=false, updatable=false)
 	private LocalDateTime publishedDate;
