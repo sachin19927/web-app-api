@@ -36,9 +36,17 @@ spring:
             enable: true
        debug: true  
    test-connection: false
-  graphql:
-   graphiql:
-     enabled: true
+  kafka:
+   bootstrap-servers: 3.109.189.129:9092
+   producer:
+     key-serializer: org.apache.kafka.common.serialization.StringSerializer
+     value-serializer: org.apache.kafka.common.serialization.StringSerializer
+   consumer:
+     group: we-app-group
+     auto-offset-reset: earliest  
+#  graphql:
+#   graphiql:
+#     enabled: true   
      
    
 email:

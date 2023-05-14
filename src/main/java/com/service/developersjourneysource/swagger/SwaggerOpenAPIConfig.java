@@ -1,4 +1,4 @@
-package com.service.developersjourneysource.configuration;
+package com.service.developersjourneysource.swagger;
 
 import java.util.List;
 

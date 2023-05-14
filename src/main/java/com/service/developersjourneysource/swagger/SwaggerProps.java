@@ -1,4 +1,4 @@
-package com.service.developersjourneysource.configuration;
+package com.service.developersjourneysource.swagger;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

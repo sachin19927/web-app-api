@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 
+import com.service.developersjourneysource.kafka.KafkaProducer;
 import com.service.developersjourneysource.model.LibraryRecord;
 
 import static java.util.Locale.ENGLISH;
@@ -23,6 +24,9 @@ public class EmailService {
 	@Autowired
 	private EmailSender emailSender;
 	
+	@Autowired
+	private KafkaProducer kafkaProducer;
+	
 	public void sendOnBoardMail(LibraryRecord libraryRecord) {
 	
 		var banners = Arrays.asList(EmailTemplates.LIBRARY_HEADER,EmailTemplates.SIGNATURE_FOOTER);
@@ -30,6 +34,7 @@ public class EmailService {
 		var context = getTemplateContext(libraryRecord);
 		emailSender.sendEmail(Arrays.asList(libraryRecord.email()),subject, "html/library-onboard-template.html", context,banners);
 		//emailSender.sendEmail(Arrays.asList(libraryRecord.email()),subject, "text/sample.txt", context);
+		kafkaProducer.sendMessageToBukcet(libraryRecord.email());
 	}
 
 	private Context getTemplateContext(Object object) {
