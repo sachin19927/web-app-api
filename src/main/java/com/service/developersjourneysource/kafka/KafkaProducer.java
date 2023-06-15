@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@Service
+//@Service
 public class KafkaProducer {
 
-	@Autowired
+	//@Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
 	
 	public void sendMessageToBukcet(String message){

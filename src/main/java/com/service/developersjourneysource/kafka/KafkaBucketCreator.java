@@ -5,10 +5,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.TopicBuilder;
 
-@Configuration
+//@Configuration
 public class KafkaBucketCreator {
 
-	@Bean
+	//@Bean
     public NewTopic javaguidesTopic(){
         return TopicBuilder.name("library-kafka-bucket")
                 .build();
