@@ -24,8 +24,8 @@ public class EmailService {
 	@Autowired
 	private EmailSender emailSender;
 	
-	@Autowired
-	private KafkaProducer kafkaProducer;
+	//@Autowired
+	//private KafkaProducer kafkaProducer;
 	
 	public void sendOnBoardMail(LibraryRecord libraryRecord) {
 	
@@ -34,7 +34,7 @@ public class EmailService {
 		var context = getTemplateContext(libraryRecord);
 		emailSender.sendEmail(Arrays.asList(libraryRecord.email()),subject, "html/library-onboard-template.html", context,banners);
 		//emailSender.sendEmail(Arrays.asList(libraryRecord.email()),subject, "text/sample.txt", context);
-		kafkaProducer.sendMessageToBukcet(libraryRecord.email());
+		//kafkaProducer.sendMessageToBukcet(libraryRecord.email());
 	}
 
 	private Context getTemplateContext(Object object) {
