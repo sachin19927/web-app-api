@@ -25,7 +25,9 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/v1")
@@ -81,6 +83,8 @@ public class LibraryContoller {
 
 	@PostMapping("/library")
 	public ResponseEntity<LibraryRecord> createTutorial(@RequestBody LibraryRecord libRecord) {
+		
+		log.info("Storing Book");
 		if(libRecord!=null) {
 			LibraryRecord bookDetail = libraryService.saveBook(libRecord);
 			emailService.sendOnBoardMail(bookDetail);
