@@ -89,7 +89,14 @@ cloud:
   region: 
     static: ap-south-1
   stack:
-    auto: false      
+    auto: false   
+
+azure:
+  storage:
+    container:
+      name: webappcontainer
+    connection:
+      string: DefaultEndpointsProtocol=https;AccountName=webapplayergenricstroage;AccountKey=duBCtud/fl3O5qsuQg81KlZqG7TtByreozV+EDcRx5PL3QSdVaxlyVmf2ggZrxJaaG/MnHUYLNjd+ASt+Be2Nw==;EndpointSuffix=core.windows.net       
 
 application:
   bucket:

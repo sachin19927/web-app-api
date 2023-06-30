@@ -8,19 +8,19 @@ import com.service.developersjourneysource.model.idp.UserDetails.Data;
 @Mapper
 public interface CustomInfoMapper {
 
-	@Mapping(source = "customInfos.operationalContacts" , target = "customInfo.operationalContacts")
-	@Mapping(source = "customInfos.applicationName" , target = "customInfo.applicationName")
-	@Mapping(source = "customInfos.notificationContact" , target = "customInfo.notificationContact")
+	@Mapping(source = "customInfos.operationalContacts" , target = "customInfos.operationalContacts")
+	@Mapping(source = "customInfos.applicationName" , target = "customInfos.applicationName")
+	@Mapping(source = "customInfos.notificationContact" , target = "customInfos.notificationContact")
 	@Mapping(target = "customInfos.renewalNotificationAck" , constant = "1")
-	@Mapping(source = "customInfos.applicationVersion" , target = "customInfo.applicationVersion")
-	@Mapping(source = "customInfos.entityName" , target = "customInfo.entityName")
-	@Mapping(source = "customInfos.apiUniqueId" , target = "customInfo.apiUniqueId")
-	@Mapping(source = "customInfos.developerAppId" , target = "customInfo.developerAppId")
-	@Mapping(source = "customInfos.entityId" , target = "customInfo.entityId")
-	@Mapping(source = "customInfos.restrictedDataAccess" , target = "customInfo.restrictedDataAccess")
-	@Mapping(source = "customInfos.consumerInternalOrExternal" , target = "customInfo.consumerInternalOrExternal")
-	@Mapping(source = "customInfos.permission" , target = "customInfo.permission")
-	@Mapping(source = "customInfos.externalId" , target = "customInfo.externalId")
+	@Mapping(source = "customInfos.applicationVersion" , target = "customInfos.applicationVersion")
+	@Mapping(source = "customInfos.entityName" , target = "customInfos.entityName")
+	@Mapping(source = "customInfos.apiUniqueId" , target = "customInfos.apiUniqueId")
+	@Mapping(source = "customInfos.developerAppId" , target = "customInfos.developerAppId")
+	@Mapping(source = "customInfos.entityId" , target = "customInfos.entityId")
+	@Mapping(source = "customInfos.restrictedDataAccess" , target = "customInfos.restrictedDataAccess")
+	@Mapping(source = "customInfos.consumerInternalOrExternal" , target = "customInfos.consumerInternalOrExternal")
+	@Mapping(source = "customInfos.permission" , target = "customInfos.permission")
+	@Mapping(source = "customInfos.externalId" , target = "customInfos.externalId")
 	UpdateUserDetails updateUserDetailsForNotificaionAck(Data useDataDetails);
 }
 

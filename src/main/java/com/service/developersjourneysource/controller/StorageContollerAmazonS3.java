@@ -22,7 +22,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @RestController
 @RequestMapping("/api/v2/awsstorage")
 @Tag(name = "AWS S3 Storage", description = "AWS S3 Storage APIs")
-public class StorageContoller {
+public class StorageContollerAmazonS3 {
 
 	@Autowired
 	private AWSFileStorageService awsFileStorageService;
