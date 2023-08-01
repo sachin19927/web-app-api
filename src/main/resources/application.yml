@@ -38,6 +38,11 @@ spring:
             enable: true
 #       debug: true  
 #   test-connection: false
+  servlet:
+   multipart:
+     max-file-size: 10MB
+     max-request-size: 10MB
+     
   kafka:
    bootstrap-servers: 3.109.189.129:9092
    producer:

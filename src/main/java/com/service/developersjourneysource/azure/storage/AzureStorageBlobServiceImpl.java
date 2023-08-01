@@ -14,22 +14,28 @@ import com.azure.storage.blob.BlobClient;
 import com.azure.storage.blob.BlobContainerClient;
 import com.azure.storage.blob.BlobServiceClient;
 import com.azure.storage.blob.models.BlobItem;
+import com.azure.storage.blob.sas.BlobServiceSasSignatureValues;
 
 @Service
 public class AzureStorageBlobServiceImpl implements AzureStorageBlobService {
 
-	   @Autowired
-	   BlobServiceClient blobServiceClient;
 
 	   @Autowired
 	   BlobContainerClient blobContainerClient;
+	   
+	   @Autowired
+		private BlobServiceSasSignatureValues blobServiceSasSignatureValues;
 	
 	@Override
 	public String upload(MultipartFile multipartFile) throws IOException {
+		
 		BlobClient blob = blobContainerClient
 	            .getBlobClient(multipartFile.getOriginalFilename());
+	      //blob.upload(multipartFile.getInputStream(),
+	        //    multipartFile.getSize(), true);
+	      
 	      blob.upload(multipartFile.getInputStream(),
-	            multipartFile.getSize(), true);
+	            multipartFile.getInputStream().available());
 	        
 	      return multipartFile.getOriginalFilename();
 	}
@@ -37,6 +43,8 @@ public class AzureStorageBlobServiceImpl implements AzureStorageBlobService {
 	@Override
 	public byte[] getFile(String fileName) {
 		BlobClient blob = blobContainerClient.getBlobClient(fileName);
+		String blobUrl = blobContainerClient.getBlobContainerUrl()+"?"+generateSasToken();
+		System.err.println(blobUrl);
 	    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 	    blob.download(outputStream);
 	    final byte[] bytes = outputStream.toByteArray();
@@ -60,4 +68,9 @@ public class AzureStorageBlobServiceImpl implements AzureStorageBlobService {
 	    return true;
 	}
 
+	private String generateSasToken() {
+		
+		String sasToken = blobContainerClient.generateSas(blobServiceSasSignatureValues);
+		return sasToken;
+	}
 }
